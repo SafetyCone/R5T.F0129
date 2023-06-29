@@ -3,6 +3,7 @@ using System;
 using R5T.T0132;
 using R5T.T0172;
 using R5T.T0172.Extensions;
+using R5T.T0180;
 using R5T.T0187;
 using R5T.T0187.Extensions;
 
@@ -18,6 +19,31 @@ namespace R5T.F0129
 
             // The solution name is just the file name stem.
             var output = fileNameStem.ToSolutionName();
+            return output;
+        }
+
+        public ISolutionDirectoryPath Get_SolutionDirectoryPath(
+            IDirectoryPath solutionDirectoryParentDirectoryPath,
+            ISolutionName solutionName)
+        {
+            var solutionDirectoryName = Instances.SolutionDirectoryNameOperator.Get_SolutionDirectoryName(solutionName);
+
+            var output = this.Get_SolutionDirectoryPath(
+                solutionDirectoryParentDirectoryPath,
+                solutionDirectoryName);
+
+            return output;
+        }
+
+        public ISolutionDirectoryPath Get_SolutionDirectoryPath(
+            IDirectoryPath solutionDirectoryParentDirectoryPath,
+            IDirectoryName solutionDirectoryName)
+        {
+            var output = Instances.PathOperator.Combine(
+                solutionDirectoryParentDirectoryPath.Value,
+                solutionDirectoryName.Value)
+                .ToSolutionDirectoryPath();
+
             return output;
         }
 
@@ -42,6 +68,21 @@ namespace R5T.F0129
                 .ToSolutionFilePath();
 
             return output;
+        }
+
+        public ISolutionFilePath Get_SolutionFilePath(
+            IDirectoryPath solutionDirectoryParentDirectoryPath,
+            ISolutionName solutionName)
+        {
+            var solutionDirectoryPath = this.Get_SolutionDirectoryPath(
+                solutionDirectoryParentDirectoryPath,
+                solutionName);
+
+            var solutionFilePath = this.Get_SolutionFilePath(
+                solutionDirectoryPath,
+                solutionName);
+
+            return solutionFilePath;
         }
     }
 }
