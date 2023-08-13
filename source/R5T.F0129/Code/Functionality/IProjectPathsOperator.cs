@@ -67,6 +67,9 @@ namespace R5T.F0129
             return output;
         }
 
+        /// <summary>
+        /// Get the path of a project file in the provided project directory.
+        /// </summary>
         public IProjectFilePath Get_ProjectFilePath(
             IProjectDirectoryPath projectDirectoryPath,
             IProjectName projectName)
@@ -80,6 +83,9 @@ namespace R5T.F0129
             return projectFilePath;
         }
 
+        /// <summary>
+        /// Gets the path to a project file in a project directory path within the provided project directory parent directory.
+        /// </summary>
         public IProjectFilePath Get_ProjectFilePath(
             IDirectoryPath projectDirectoryParentDirectoryPath,
             IProjectName projectName)
