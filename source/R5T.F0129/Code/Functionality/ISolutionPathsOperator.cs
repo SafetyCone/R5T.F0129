@@ -15,7 +15,7 @@ namespace R5T.F0129
     {
         public ISolutionName Get_SolutionName(ISolutionFilePath solutionFilePath)
         {
-            var fileNameStem = Instances.PathOperator.GetFileNameStem(solutionFilePath.Value);
+            var fileNameStem = Instances.PathOperator.Get_FileNameStem(solutionFilePath.Value);
 
             // The solution name is just the file name stem.
             var output = fileNameStem.ToSolutionName();
@@ -49,7 +49,7 @@ namespace R5T.F0129
 
         public ISolutionDirectoryPath Get_SolutionDirectoryPath(ISolutionFilePath solutionFilePath)
         {
-            var output = Instances.PathOperator.GetParentDirectoryPath_ForFile(
+            var output = Instances.PathOperator.Get_ParentDirectoryPath_ForFile(
                 solutionFilePath.Value)
                 .ToSolutionDirectoryPath();
 
@@ -62,7 +62,7 @@ namespace R5T.F0129
         {
             var solutionFileName = Instances.SolutionFileNameOperator.Get_SolutionFileName(solutionName);
 
-            var output = Instances.PathOperator.GetFilePath(
+            var output = Instances.PathOperator.Get_FilePath(
                 solutionDirectoryPath.Value,
                 solutionFileName.Value)
                 .ToSolutionFilePath();

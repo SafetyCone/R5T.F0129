@@ -40,7 +40,7 @@ namespace R5T.F0129
 
         public IProjectDirectoryPath Get_ProjectDirectoryPath(IProjectFilePath projectFilePath)
         {
-            var output = Instances.PathOperator.GetParentDirectoryPath_ForFile(projectFilePath.Value)
+            var output = Instances.PathOperator.Get_ParentDirectoryPath_ForFile(projectFilePath.Value)
                 .ToProjectDirectoryPath();
 
             return output;
@@ -48,7 +48,7 @@ namespace R5T.F0129
 
         public IProjectFileName Get_ProjectFileName(IProjectFilePath projectFilePath)
         {
-            var projectFileName = Instances.PathOperator.GetFileName(
+            var projectFileName = Instances.PathOperator.Get_FileName(
                 projectFilePath.Value)
                 .ToProjectFileName();
 
@@ -59,7 +59,7 @@ namespace R5T.F0129
             IProjectDirectoryPath projectDirectoryPath,
             IProjectFileName projectFileName)
         {
-            var output = Instances.PathOperator.GetFilePath(
+            var output = Instances.PathOperator.Get_FilePath(
                 projectDirectoryPath.Value,
                 projectFileName.Value)
                 .ToProjectFilePath();
@@ -103,7 +103,7 @@ namespace R5T.F0129
 
         public IProjectName Get_ProjectName(IProjectFilePath projectFilePath)
         {
-            var projectName = Instances.PathOperator.GetFileNameStem(
+            var projectName = Instances.PathOperator.Get_FileNameStem(
                 projectFilePath.Value)
                 .ToProjectName();
 

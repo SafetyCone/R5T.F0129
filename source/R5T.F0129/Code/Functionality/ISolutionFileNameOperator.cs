@@ -29,7 +29,7 @@ namespace R5T.F0129
         {
             var solutionFileNameStem = this.Get_SolutionFileNameStem(solutionName);
 
-            var output = Instances.FileExtensionOperator.GetFileName(
+            var output = Instances.FileExtensionOperator.Get_FileName(
                 solutionFileNameStem.Value,
                 Instances.FileExtensions.SolutionFile.Value)
                 .ToSolutionFileName();
