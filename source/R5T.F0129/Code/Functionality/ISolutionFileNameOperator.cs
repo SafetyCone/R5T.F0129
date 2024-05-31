@@ -31,7 +31,7 @@ namespace R5T.F0129
 
             var output = Instances.FileExtensionOperator.Get_FileName(
                 solutionFileNameStem.Value,
-                Instances.FileExtensions.SolutionFile.Value)
+                Instances.FileExtensions.Solution_File.Value)
                 .ToSolutionFileName();
 
             return output;
